@@ -1,17 +1,228 @@
 series:
   auto_loan_rates:
     TERMCBAUTO48NS:
-      "48-Month New Auto Loan"
+      name: "48-Month New Auto Loan"
     RIFLPBCIANM60NM:
-      "60-Month Personal Loan"
+      name: "60-Month Personal Loan"
     RIFLPBCIANM72NM:
-      "72-Month Personal Loan"
+      name: "72-Month Personal Loan"
 
   interest_rate_spreads:
     T10Y2Y:
-      "10-Year Treasury Constant Maturity Minus 2-Year Treasury Constant Maturity"
+      name: "10-Year Treasury Constant Maturity Minus 2-Year Treasury Constant Maturity"
     T10Y3M:
-      "10-Year Treasury Constant Maturity Minus 3-Month Treasury Constant Maturity"
-    T10YIE:
-      "10-Year Breakeven Inflation Rate"
+      name: "10-Year Treasury Constant Maturity Minus 3-Month Treasury Constant Maturity"
+    T5YFF:
+      name: "5-Year Treasury Constant Maturity Minus Federal Funds Rate"
+    T1YFF:
+      name: "1-Year Treasury Constant Maturity Minus Federal Funds Rate"
+    T6MFF:
+      name: "6-Month Treasury Constant Maturity Minus Federal Funds Rate"
+    T3MFF:
+      name: "3-Month Treasury Constant Maturity Minus Federal Funds Rate"
 
+  treasury_securities:
+    DGS30:
+      name: "30-Year Treasury Constant Maturity Rate"
+      years: 30
+      measure: "rate"
+      submeasure: "treasury"
+    DGS10:
+      name: "10-Year Treasury Constant Maturity Rate"
+      years: 10
+      measure: "rate"
+      submeasure: "treasury"
+    DGS5:
+      name: "5-Year Treasury Constant Maturity Rate"
+      years: 5
+      measure: "rate"
+      submeasure: "treasury"
+    DGS2:
+      name: "2-Year Treasury Constant Maturity Rate"
+      years: 2
+      measure: "rate"
+      submeasure: "treasury"
+    DGS1:
+      name: "1-Year Treasury Constant Maturity Rate"
+      years: 1
+      measure: "rate"
+      submeasure: "treasury"
+    DGS3MO:
+      name: "3-Month Treasury Constant Maturity Rate"
+      years: 0.25
+      measure: "rate"
+      submeasure: "treasury"
+    DGS1MO:
+      name: "1-Month Treasury Constant Maturity Rate"
+      years: 0.0833
+      measure: "rate"
+      submeasure: "treasury"
+    
+  break_even_inflation_rates:
+    T5YIE:
+      name: "5-Year Breakeven Inflation Rate"
+      years: 5
+      measure: "rate"
+      submeasure: "break-even inflation"
+    T10YIE:
+      name: "10-Year Breakeven Inflation Rate"
+      years: 10
+      measure: "rate"
+      submeasure: "break-even inflation"
+
+  mortgate_rates:
+    MORTGAGE30US:
+      name: "30-Year Fixed Rate Mortgage Average in the United States"
+      years: 30
+      measure: "rate"
+      submeasure: "mortgage"
+    MORTGAGE15US:
+      name: "15-Year Fixed Rate Mortgage Average in the United States"
+      years: 15
+      measure: "rate"
+      submeasure: "mortgage"
+
+  mortgage_rates_by_credit_score:
+    OBMMIC30YFLVLE80FGE740:
+      name: "30-Year Fixed Conforming Mortgage (Loan-to-Value <= 80%, FICO > 740)"
+      years: 30
+      measure: "rate"
+      submeasure: 
+        - type: "mortgage"
+        - ltv: "<= 80%"
+        - fico: "> 740"
+        - term: 30
+    OBMMIC30YFLVGT80FB720A739:
+      name: "30-Year Fixed Conforming Mortgage (Loan-to-Value > 80% but <= 90%, FICO > 720 but <= 739)"
+      years: 30
+      measure: "rate"
+      submeasure: 
+        - type: "mortgage"
+        - ltv: "> 80% but <= 90%"
+        - fico: "> 720 but <= 739"
+        - term: 30
+    OBMMIC30YFLVGT80FGE740:
+      name: "30-Year Fixed Conforming Mortgage (Loan-to-Value > 80%, FICO > 740)"
+      years: 30
+      measure: "rate"
+      submeasure: 
+        - type: "mortgage"
+        - ltv: "> 80%"
+        - fico: "> 740"
+        - term: 30
+    OBMMIC30YFLVGT80FLT680:
+      name: "30-Year Fixed Conforming Mortgage (Loan-to-Value > 80%, FICO <= 680)"
+      years: 30
+      measure: "rate"
+      submeasure: 
+        - type: "mortgage"
+        - ltv: "> 80%"
+        - fico: "<= 680"
+        - term: 30
+    OBMMIC30YFLVLE80FLT680:
+      name: "30-Year Fixed Conforming Mortgage (Loan-to-Value <= 80%, FICO <= 680)"
+      measure: "rate"
+      submeasure: 
+        - type: "mortgage"
+        - ltv: "<= 80%"
+        - fico: "<= 680"
+        - term: 30
+
+  prime_bank_loan_rate:
+    DPRIME:
+      name: "Bank Prime Loan Rate"
+      freq: "d"
+      measure: "rate"
+      submeasure: "prime loan"
+
+    
+  treasury_bills:
+    DTB1YR:
+      name: "1-Year Treasury Bill: Secondary Market Rate"
+      measure: "rate"
+      submeasure: "treasury bill"
+      freq: "d"
+    DTB3MS:
+      name: "3-Month Treasury Bill: Secondary Market Rate"
+    DTB4WK:
+      name: "4-Week Treasury Bill: Secondary Market Rate"
+
+  total_bond_return_index:
+    BAMLCC0A1AAATRIV:
+      name: "ICE BofA US AAA Corporate Index Total Return Index Value"
+      source: "ICE BofA"
+      freq: "d"
+    BAMLCC0A0CMTRIV:
+      name: "ICE BofA US Corporate Index Total Return Index Value"
+      source: "ICE BofA"
+      freq: "d"
+    BAMLHYH0A0HYM2TRIV:
+      name: "ICE BofA US High Yield Index Total Return Index Value"
+      source: "ICE BofA"
+      freq: "d"
+    
+  stock_market_indices:
+    SP500:
+      name: "S&P 500 Index"
+      source: "Standard & Poor's"
+      freq: "d"
+    RUSSELL2000:
+      name: "Russell 2000 Index"
+      source: "Russell"
+      freq: "d"
+    WILL5000IND:
+      name: "Wilshire 5000 Total Market Index"
+      source: "Wilshire"
+      freq: "d"
+    WILLSMLCAPPR:
+      name: "Wilshire US Small-Cap Price Index"
+      source: "Wilshire"
+      freq: "d"
+    WILLMICROCAPPR:
+      name: "Wilshire US Micro-Cap Price Index"
+      source: "Wilshire"
+      freq: "d"
+
+  volatility_indices:
+    VIXCLS:
+      name: "CBOE Volatility Index (VIX)"
+      source: "CBOE"
+      freq: "d"
+    GVZCLS:
+      name: "CBOE Gold ETF Volatility Index"
+      source: "CBOE"
+      freq: "d"
+
+  financial_activity_measures:
+    NFCI:
+      name: "National Financial Conditions Index"
+      source: "Chicago Fed"
+      freq: "w"
+    UMCSENT:
+      name: "Consumer Sentiment"
+      source: "University of Michigan"
+      freq: "m"
+    STLFSI4:
+      name: "Financial Stress Index"
+      source: "St. Louis Fed"
+      freq: "w"
+    CANDH:
+      name: "National Activity Index: Personal Consumption & Housing"
+      source: "Chicago Fed"
+      freq: "m"
+    SOANDI:
+      name: "National Activity Index: Sales, Orders, and Inventories"
+      source: "Chicago Fed"
+      freq: "m"
+    PANDI:
+      name: "National Activity Index: Production & Income"
+      source: "Chicago Fed"
+      freq: "m"
+    EUANDH:
+      name: "National Activity Index: Employment, Unemployment & Hours"
+      source: "Chicago Fed"
+      freq: "m"
+
+  civilian_labor_force:
+    LNU01000000:
+      "Civilian Labor Force Level"
