@@ -1,0 +1,57 @@
+{
+	"name": "Snowflake-dbt",
+    "dockerComposeFile": "compose.yml",
+    "service": "dbt",
+    "workspaceFolder": "/app",
+    "customizations": {
+		"vscode": {
+			"extensions": [
+				"charliermarsh.ruff",
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"GitHub.codespaces",
+				"ms-python.python",
+				"ParthR2031.colorful-comments",
+				"usernamehw.errorlens",
+				"vscode-icons-team.vscode-icons",
+				"esbenp.prettier-vscode",
+				"inferrinizzard.prettier-sql-vscode",
+				"snowflake.snowflake-vsc"
+			],
+
+            "settings": {
+                "workbench.panel.defaultLocation": "bottom",
+                "workbench.colorTheme": "GitHub Dark High Contrast",
+                "editor.fontFamily": "JetBrainsMono Nerd Font",
+                "editor.fontWeight": "100",
+                "editor.fontLigatures": true,
+                "editor.fontSize": 16,
+                "editor.lineHeight": 1.2,
+                "editor.formatOnSave": true,
+                "editor.formatOnType": true,
+                "editor.formatOnPaste": true,
+                "editor.defaultFormatter": "charliermarsh.ruff",
+                "terminal.integrated.shell.linux": "/bin/zsh",
+                "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+                "terminal.integrated.defaultShell.linux": "/bin/zsh",
+                "python.analysis.ignore": ["*"],
+                "ruff.showNotifications": "onWarning",
+                "terminal.integrated.copyOnSelection": true,
+                "terminal.integrated.defaultProfile.linux": "zsh",
+                "terminal.integrated.showExitAlert": false,
+                "terminal.integrated.fontSize": 16,
+                "terminal.integrated.fontWeight": "500",
+                "notebook.output.fontSize": 15,
+                "notebook.output.lineHeight": 1.2,
+                "ruff.enable": true,
+                "ruff.fixAll": true,
+                "ruff.linting.enabled": true,
+                "ruff.lint.enable": true,
+                "ruff.lint.run": "onSave",
+                "ruff.trace.server": "messages"
+                }
+            },
+            "postAttachCommand": "install_dotfiles $HOME .zshrc .zsh_aliases && exec zsh && install_dotfiles /app .ruff.toml .prettierrc .mypy.ini && .venv/bin/python -Xfrozen_modules=off && ln -s .venv/bin/python /app/python3"
+                        
+		}
+	}
